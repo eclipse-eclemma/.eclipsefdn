@@ -55,8 +55,6 @@ orgs.newOrg('eclipse-eclemma') {
         actions_can_approve_pull_request_reviews: false,
         default_workflow_permissions: "write",
       },
-      webhooks: [
-      ],
     },
   ],
 }
