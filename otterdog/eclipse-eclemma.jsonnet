@@ -55,20 +55,6 @@ orgs.newOrg('eclipse-eclemma') {
         actions_can_approve_pull_request_reviews: false,
         default_workflow_permissions: "write",
       },
-      webhooks: [
-        orgs.newRepoWebhook('https://notify.travis-ci.org') {
-          events+: [
-            "create",
-            "delete",
-            "issue_comment",
-            "member",
-            "public",
-            "pull_request",
-            "push",
-            "repository"
-          ],
-        },
-      ],
     },
   ],
 }
