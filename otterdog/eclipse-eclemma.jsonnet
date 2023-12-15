@@ -43,6 +43,13 @@ orgs.newOrg('eclipse-eclemma') {
         actions_can_approve_pull_request_reviews: false,
         default_workflow_permissions: "write",
       },
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('master') {
+          required_approving_review_count: 1,
+          requires_linear_history: true,
+          requires_strict_status_checks: true,
+        },
+      ],
     },
     orgs.newRepo('update.eclemma.org') {
       description: "website https://update.eclemma.org",
