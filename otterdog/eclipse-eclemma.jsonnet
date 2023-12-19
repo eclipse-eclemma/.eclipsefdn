@@ -56,5 +56,27 @@ orgs.newOrg('eclipse-eclemma') {
         default_workflow_permissions: "write",
       },
     },
+    orgs.newRepo('update.eclemma.org') {
+      description: "website https://update.eclemma.org",
+      homepage: "https://update.eclemma.org",
+      gh_pages_build_type: "legacy",
+      gh_pages_source_branch: "gh-pages",
+      gh_pages_source_path: "/",
+      has_issues: false,
+      has_wiki: false,
+      has_projects: false,
+      web_commit_signoff_required: false,
+      workflows+: {
+        actions_can_approve_pull_request_reviews: false,
+      },
+      environments: [
+        orgs.newEnvironment('github-pages') {
+          branch_policies+: [
+            "gh-pages"
+          ],
+          deployment_branch_policy: "selected",
+        },
+      ],
+    },
   ],
 }
