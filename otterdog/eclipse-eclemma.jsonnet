@@ -31,8 +31,6 @@ orgs.newOrg('eclipse-eclemma') {
       description: ":waning_crescent_moon:　Java Code Coverage for Eclipse IDE",
       has_issues: false,
       homepage: "https://www.eclemma.org",
-      secret_scanning: "enabled",
-      secret_scanning_push_protection: "enabled",
       topics+: [
         "coverage",
         "eclipse-plugin",
@@ -40,23 +38,19 @@ orgs.newOrg('eclipse-eclemma') {
       ],
       web_commit_signoff_required: false,
       workflows+: {
-        actions_can_approve_pull_request_reviews: false,
         default_workflow_permissions: "write",
       },
     },
     orgs.newRepo('update.eclemma.org') {
       description: "website https://update.eclemma.org",
-      homepage: "https://update.eclemma.org",
       gh_pages_build_type: "legacy",
       gh_pages_source_branch: "gh-pages",
       gh_pages_source_path: "/",
       has_issues: false,
-      has_wiki: false,
       has_projects: false,
+      has_wiki: false,
+      homepage: "https://update.eclemma.org",
       web_commit_signoff_required: false,
-      workflows+: {
-        actions_can_approve_pull_request_reviews: false,
-      },
       environments: [
         orgs.newEnvironment('github-pages') {
           branch_policies+: [
