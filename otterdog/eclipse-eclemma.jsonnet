@@ -3,7 +3,6 @@ local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 orgs.newOrg('eclipse-eclemma') {
   settings+: {
     blog: "https://projects.eclipse.org/projects/technology.eclemma",
-    dependabot_security_updates_enabled_for_new_repositories: false,
     description: "Eclipse EclEmma is a Java code coverage tool for the Eclipse IDE.",
     name: "Eclipse EclEmma",
     web_commit_signoff_required: false,
