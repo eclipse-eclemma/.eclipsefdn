@@ -22,6 +22,7 @@ orgs.newOrg('eclipse-eclemma') {
   ],
   _repositories+:: [
     orgs.newRepo('eclemma') {
+      allow_auto_merge: true,
       allow_update_branch: false,
       default_branch: "master",
       delete_branch_on_merge: false,
