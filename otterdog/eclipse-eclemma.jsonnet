@@ -28,7 +28,7 @@ orgs.newOrg('eclipse-eclemma') {
       delete_branch_on_merge: false,
       dependabot_security_updates_enabled: true,
       description: ":waning_crescent_moon:　Java Code Coverage for Eclipse IDE",
-      has_issues: false,
+      has_issues: true,
       homepage: "https://www.eclemma.org",
       topics+: [
         "coverage",
