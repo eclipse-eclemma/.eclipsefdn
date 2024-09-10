@@ -36,6 +36,13 @@ orgs.newOrg('eclipse-eclemma') {
         "java"
       ],
       web_commit_signoff_required: false,
+      branch_protection_rules: [
+        orgs.newBranchProtectionRule('master') {
+          required_approving_review_count: null,
+          requires_linear_history: true,
+          requires_pull_request: false,
+        },
+      ],
       workflows+: {
         default_workflow_permissions: "write",
       },
