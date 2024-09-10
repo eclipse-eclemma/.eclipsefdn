@@ -8,7 +8,7 @@ orgs.newOrg('eclipse-eclemma') {
     web_commit_signoff_required: false,
     workflows+: {
       actions_can_approve_pull_request_reviews: false,
-      default_workflow_permissions: "write",
+      default_workflow_permissions: "read",
     },
   },
   webhooks+: [
@@ -43,9 +43,6 @@ orgs.newOrg('eclipse-eclemma') {
           requires_pull_request: false,
         },
       ],
-      workflows+: {
-        default_workflow_permissions: "write",
-      },
     },
     orgs.newRepo('update.eclemma.org') {
       description: "website https://update.eclemma.org",
