@@ -1,5 +1,14 @@
 local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 
+local ourBranchProtectionRule(pattern) =
+  orgs.newBranchProtectionRule(pattern) {
+    allows_deletions: false,
+    allows_force_pushes: false,
+    required_approving_review_count: null,
+    requires_linear_history: true,
+    requires_pull_request: false,
+  };
+
 orgs.newOrg('technology.eclemma', 'eclipse-eclemma') {
   settings+: {
     blog: "https://projects.eclipse.org/projects/technology.eclemma",
@@ -37,11 +46,7 @@ orgs.newOrg('technology.eclemma', 'eclipse-eclemma') {
       ],
       web_commit_signoff_required: false,
       branch_protection_rules: [
-        orgs.newBranchProtectionRule('master') {
-          required_approving_review_count: null,
-          requires_linear_history: true,
-          requires_pull_request: false,
-        },
+        ourBranchProtectionRule('master'),
       ],
     },
     orgs.newRepo('update.eclemma.org') {
@@ -54,6 +59,10 @@ orgs.newOrg('technology.eclemma', 'eclipse-eclemma') {
       has_wiki: false,
       homepage: "https://update.eclemma.org",
       web_commit_signoff_required: false,
+      branch_protection_rules: [
+        ourBranchProtectionRule('main'),
+        ourBranchProtectionRule('gh-pages'),
+      ],
       environments: [
         orgs.newEnvironment('github-pages') {
           branch_policies+: [
@@ -61,6 +70,11 @@ orgs.newOrg('technology.eclemma', 'eclipse-eclemma') {
           ],
           deployment_branch_policy: "selected",
         },
+      ],
+    },
+    orgs.newRepo('.github') {
+      branch_protection_rules: [
+        ourBranchProtectionRule('main'),
       ],
     },
   ],
